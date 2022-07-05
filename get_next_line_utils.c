@@ -6,7 +6,7 @@
 /*   By: mkaizer- <mkaizer-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 03:41:28 by mkaizer-          #+#    #+#             */
-/*   Updated: 2022/06/16 03:41:29 by mkaizer-         ###   ########.fr       */
+/*   Updated: 2022/07/04 22:56:32 by mkaizer-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,6 @@ size_t	ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
-}
-
-char	*ft_strchr(const char *s, int c)
-{	
-	char	*str;
-	size_t	i;
-	size_t	s_len;
-
-	str = (char *)s;
-	s_len = ft_strlen(s);
-	i = 0;
-	while (i <= s_len)
-	{
-		if (str[i] == (char) c)
-			return (&str[i]);
-		i++;
-	}
-	return (NULL);
 }
 
 char	*ft_strdup(const char *s)

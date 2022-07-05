@@ -5,11 +5,12 @@
 int main()
 {
   int fd;
-  char buffer[7000]; //Utilizar apenas *buffer nao funciona
+  char buffer[6000]; //Utilizar apenas *buffer nao funciona
   ssize_t bytes;
-
+ 
   fd = open("fellasInParis", O_RDONLY);
-  bytes = read(fd, buffer,7000);
+  bytes = read(fd, buffer,BUFFER_SIZE);
   buffer[bytes] = '\0';  // Assim eu garanto que sempre no final do buffer eu coloco um byte nulo, caso não ocorra um erro na read.
+
   printf("%s", buffer);
 }

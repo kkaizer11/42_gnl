@@ -6,10 +6,11 @@
 /*   By: mkaizer- <mkaizer-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 03:41:31 by mkaizer-          #+#    #+#             */
-/*   Updated: 2022/06/16 03:41:32 by mkaizer-         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:52:30 by mkaizer-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+static int	find_line_break()
 char    *get_next_line(int fd);
