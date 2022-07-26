@@ -6,7 +6,7 @@
 /*   By: mkaizer- <mkaizer-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 03:42:21 by mkaizer-          #+#    #+#             */
-/*   Updated: 2022/07/08 21:13:33 by mkaizer-         ###   ########.fr       */
+/*   Updated: 2022/07/25 02:39:36 by mkaizer-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 char    *get_next_line(int fd);
 size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strndup(const char *s, size_t n)
 
 #endif
