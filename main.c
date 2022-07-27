@@ -1,16 +1,20 @@
 # include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include "get_next_line.h"
 
 int main()
 {
-  int fd;
-  char buffer[6000]; //Utilizar apenas *buffer nao funciona
-  ssize_t bytes;
+	int fd;
+	char *texto;
+	int i = 0;
  
-  fd = open("fellasInParis", O_RDONLY);
-  bytes = read(fd, buffer,BUFFER_SIZE);
-  buffer[bytes] = '\0';  // Assim eu garanto que sempre no final do buffer eu coloco um byte nulo, caso não ocorra um erro na read.
-
-  printf("%s", buffer);
+	fd = open("fellasInParis", O_RDONLY);
+	
+	while (i < 88)
+	{
+		texto = get_next_line(fd);
+		printf("%s", texto);
+		i++;
+	}
 }

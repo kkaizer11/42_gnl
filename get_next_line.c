@@ -6,7 +6,7 @@
 /*   By: mkaizer- <mkaizer-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 03:41:31 by mkaizer-          #+#    #+#             */
-/*   Updated: 2022/07/27 20:37:13 by mkaizer-         ###   ########.fr       */
+/*   Updated: 2022/07/27 21:00:33 by mkaizer-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 char	*reading_buffer(int fd, char *lines)
 {
-	char	*bufer;
+	char	*buffer;
 	int		i;
 
 	i = 1;
-	bufer = malloc(BUFFER_SIZE + 1);
-	if (bufer == NULL)
+	buffer = malloc(BUFFER_SIZE + 1);
+	if (buffer == NULL)
 		return (NULL);
 	while (i && (ft_strchr(lines, '\n')) == NULL)
 	{
-		i = read(fd, bufer, BUFFER_SIZE);
+		i = read(fd, buffer, BUFFER_SIZE);
 		if (i == -1)
 		{
-			free(bufer);
+			free(buffer);
 			return (NULL);
 		}
-		bufer[i] = '\0';
-		lines = ft_strjoin(lines, bufer);
+		buffer[i] = '\0';
+		lines = ft_strjoin(lines, buffer);
 	}
-	free (bufer);
+	free (buffer);
 	return (lines);
 }
 
-char	*one_line(char *lines)
+char	*line_split(char *lines)
 {
 	int	i;
 
@@ -48,35 +48,35 @@ char	*one_line(char *lines)
 	return (ft_substr(lines, 0, ++i));
 }
 
-char	*lines_rest(char *file_line)
+char	*lines_rest(char *res)
 {
 	int		j;
 	char	*temp;
 
 	j = 0;
-	while (file_line[j] != '\n' && file_line[j])
+	while (res[j] != '\n' && res[j])
 		j++;
-	if (file_line[j] == '\0')
+	if (res[j] == '\0')
 	{
-		free(file_line);
+		free(res);
 		return (NULL);
 	}
-	temp = ft_substr(file_line, ++j, ft_strlen(file_line));
-	free(file_line);
+	temp = ft_substr(res, ++j, ft_strlen(res));
+	free(res);
 	return (temp);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*file_line;
-	char		*o_line;
+	static char	*res;
+	char		*temp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	file_line = reading_buffer(fd, file_line);
-	if (file_line == NULL)
+	res = reading_buffer(fd, res);
+	if (res == NULL)
 		return (NULL);
-	o_line = one_line(file_line);
-	file_line = lines_rest(file_line);
-	return (o_line);
+	temp = line_split(res);
+	res = lines_rest(res);
+	return (temp);
 }

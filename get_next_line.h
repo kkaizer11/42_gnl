@@ -6,7 +6,7 @@
 /*   By: mkaizer- <mkaizer-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 03:42:21 by mkaizer-          #+#    #+#             */
-/*   Updated: 2022/07/27 19:52:41 by mkaizer-         ###   ########.fr       */
+/*   Updated: 2022/07/27 21:09:27 by mkaizer-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char *s, unsigned int start, size_t len);		
 char	*get_next_line(int fd);
-
 
 #endif
