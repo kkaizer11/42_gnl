@@ -6,13 +6,13 @@
 /*   By: mkaizer- <mkaizer-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 03:41:31 by mkaizer-          #+#    #+#             */
-/*   Updated: 2022/07/27 19:53:58 by mkaizer-         ###   ########.fr       */
+/*   Updated: 2022/07/27 20:37:13 by mkaizer-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*read_buff_size(int fd, char *lines)
+char	*reading_buffer(int fd, char *lines)
 {
 	char	*bufer;
 	int		i;
@@ -51,7 +51,7 @@ char	*one_line(char *lines)
 char	*lines_rest(char *file_line)
 {
 	int		j;
-	char	*dup;
+	char	*temp;
 
 	j = 0;
 	while (file_line[j] != '\n' && file_line[j])
@@ -61,9 +61,9 @@ char	*lines_rest(char *file_line)
 		free(file_line);
 		return (NULL);
 	}
-	dup = ft_substr(file_line, ++j, ft_strlen(file_line));
+	temp = ft_substr(file_line, ++j, ft_strlen(file_line));
 	free(file_line);
-	return (dup);
+	return (temp);
 }
 
 char	*get_next_line(int fd)
@@ -73,7 +73,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	file_line = read_buff_size(fd, file_line);
+	file_line = reading_buffer(fd, file_line);
 	if (file_line == NULL)
 		return (NULL);
 	o_line = one_line(file_line);
