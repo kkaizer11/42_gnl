@@ -11,7 +11,7 @@ int main()
  
 	fd = open("das_model.txt", O_RDONLY);
 	
-	while (i < 88)
+	while (i < 5)
 	{
 		texto = get_next_line(fd);
 		printf("%s", texto);
